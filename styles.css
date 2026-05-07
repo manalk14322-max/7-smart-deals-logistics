@@ -25,6 +25,7 @@ body {
   background: var(--white);
   font-family: "Inter", Arial, sans-serif;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 a {
@@ -1151,55 +1152,135 @@ svg {
 
 @media (max-width: 640px) {
   .container {
-    width: min(100% - 30px, 1120px);
+    width: min(100% - 28px, 1120px);
+  }
+
+  .topbar {
+    font-size: 12px;
   }
 
   .topbar__inner,
   .topbar__group {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px 0;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 7px 0;
+  }
+
+  .topbar__location {
+    display: none;
+  }
+
+  .topbar a {
+    white-space: normal;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 8px 24px rgba(7, 20, 38, 0.08);
   }
 
   .navbar__inner {
-    min-height: 78px;
+    min-height: 72px;
+    gap: 12px;
   }
 
   .brand__mark {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
   }
 
   .brand__mark svg {
-    width: 40px;
-    height: 40px;
+    width: 37px;
+    height: 37px;
   }
 
   .brand__text {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.08;
+  }
+
+  .nav-toggle {
+    width: 42px;
+    height: 42px;
+    border-color: rgba(8, 47, 95, 0.18);
+    box-shadow: 0 8px 18px rgba(7, 20, 38, 0.08);
+  }
+
+  .nav-menu {
+    padding: 10px 14px 18px;
+  }
+
+  .nav-menu a {
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--line);
+    border-radius: 7px;
+  }
+
+  .nav-menu a.active::after {
+    display: none;
+  }
+
+  .nav-menu a.active {
+    background: var(--soft);
+  }
+
+  .quote-link {
+    width: 100%;
+    margin-top: 12px;
+    border-bottom: 0 !important;
   }
 
   .hero__content {
-    padding: 44px 0 28px;
+    min-height: auto;
+    padding: 52px 0 26px;
   }
 
   .hero__media {
-    background-position: center, center, center;
-    background-size: auto, auto, auto 100%;
+    background-image:
+      linear-gradient(180deg, rgba(5, 18, 34, 0.88) 0%, rgba(5, 18, 34, 0.78) 44%, rgba(5, 18, 34, 0.96) 100%),
+      url("assets/hero-perfect-truck.png");
+    background-position: center, center bottom;
+    background-repeat: no-repeat;
+    background-size: auto, 118% auto;
   }
 
   .hero h1 {
-    font-size: clamp(36px, 12vw, 44px);
+    max-width: 360px;
+    font-size: clamp(34px, 10.5vw, 42px);
+    line-height: 1.08;
   }
 
   .hero__copy {
+    max-width: 350px;
     font-size: 16px;
   }
 
   .hero__actions,
   .hero__actions .btn {
     width: 100%;
+  }
+
+  .btn,
+  .quote-link {
+    min-height: 52px;
+  }
+
+  .hero__points {
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 0;
+  }
+
+  .point {
+    min-height: 62px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(4px);
   }
 
   .hero__points,
@@ -1210,24 +1291,83 @@ svg {
   }
 
   .trust-strip__inner {
-    padding: 24px 0;
+    gap: 12px;
+    padding: 22px 0;
+  }
+
+  .trust-strip__lead {
+    padding: 0 0 0 14px;
+    font-size: 17px;
+  }
+
+  .trust-item {
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--soft);
   }
 
   .services {
-    padding-top: 42px;
+    padding: 44px 0 28px;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .section-heading small {
+    font-size: 15px;
   }
 
   .service-card__icon {
-    top: 104px;
+    top: clamp(98px, 31vw, 132px);
+    width: 58px;
+    height: 58px;
+  }
+
+  .service-card__body {
+    padding: 44px 20px 24px;
+  }
+
+  .service-card p {
+    min-height: 0;
   }
 
   .stats__inner {
-    padding: 26px 0 42px;
+    gap: 14px;
+    padding: 28px 0 42px;
+  }
+
+  .stat {
+    grid-template-columns: 58px 1fr;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .stat__icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .stat strong {
+    font-size: 27px;
   }
 
   .cta__box {
     grid-template-columns: 1fr;
-    padding: 26px;
+    gap: 18px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .cta__icon {
+    margin: 0 auto;
   }
 
   .cta .btn {
@@ -1236,8 +1376,16 @@ svg {
   }
 
   .page-hero__inner {
-    min-height: 300px;
-    padding: 46px 0;
+    min-height: 280px;
+    padding: 42px 0;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(34px, 10vw, 42px);
+  }
+
+  .page-hero p:last-child {
+    font-size: 16px;
   }
 
   .feature-list {
@@ -1246,7 +1394,18 @@ svg {
 
   .about-section,
   .contact-section {
-    padding: 44px 0;
+    padding: 42px 0;
+  }
+
+  .service-detail {
+    padding: 42px 0;
+  }
+
+  .service-detail__main h2,
+  .about-grid h2,
+  .contact-panel h2,
+  .contact-info h2 {
+    font-size: 28px;
   }
 
   .about-grid,
@@ -1257,10 +1416,52 @@ svg {
   }
 
   .contact-panel {
-    padding: 24px;
+    padding: 22px;
+  }
+
+  .contact-panel input,
+  .contact-panel select,
+  .contact-panel textarea {
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  .contact-info {
+    padding: 22px;
   }
 
   .footer-grid {
-    padding: 42px 0 26px;
+    gap: 22px;
+    padding: 40px 0 26px;
+  }
+
+  .brand--footer .brand__text {
+    font-size: 18px;
+  }
+
+  .footer-bottom {
+    padding: 16px 0 22px;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand__text {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .topbar__group {
+    gap: 6px;
+  }
+
+  .topbar a {
+    font-size: 11px;
+  }
+
+  .service-card__icon {
+    top: 92px;
   }
 }
