@@ -1207,7 +1207,7 @@ svg {
 
 .quote-section,
 .faq-section {
-  padding: 64px 0;
+  padding: 52px 0;
   background: var(--white);
 }
 
@@ -1234,8 +1234,8 @@ svg {
 
 .quote-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 30px;
   align-items: start;
 }
 
@@ -1254,7 +1254,7 @@ svg {
 
 .quote-intro {
   max-width: 720px;
-  margin: -4px 0 24px;
+  margin: -8px 0 18px;
   color: rgba(255, 255, 255, 0.72);
   font-weight: 600;
 }
@@ -1269,7 +1269,7 @@ svg {
 .quote-section--dark .contact-panel input,
 .quote-section--dark .contact-panel select,
 .quote-section--dark .contact-panel textarea {
-  min-height: 58px;
+  min-height: 50px;
   border-color: rgba(255, 255, 255, 0.1);
   color: var(--white);
   background: rgba(255, 255, 255, 0.14);
@@ -1294,7 +1294,7 @@ svg {
 
 .distance-field {
   grid-column: 1 / -1;
-  padding: 18px 20px;
+  padding: 12px 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
@@ -1302,50 +1302,89 @@ svg {
 
 .distance-field span {
   display: block;
-  margin: 10px 0 14px;
+  margin: 6px 0 8px;
   color: var(--white);
   font-size: 18px;
   line-height: 1;
 }
 
 .distance-field b {
-  font-size: 38px;
+  font-size: 30px;
 }
 
 .distance-field input[type="range"] {
-  height: 36px;
+  height: 28px;
   padding: 0;
   accent-color: #1895ef;
   cursor: pointer;
 }
 
-.form-security {
+.human-check {
   grid-column: 1 / -1;
   display: grid;
-  gap: 5px;
-  padding: 16px 18px;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  width: min(460px, 100%);
+  padding: 13px 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   color: rgba(255, 255, 255, 0.82);
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
 }
 
-.form-security strong {
-  color: var(--white);
-  font-size: 15px;
+.human-check input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.form-security span {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 13px;
+.human-check span {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #5b6068;
+  background: #fff;
+}
+
+.human-check span::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 15px;
+  height: 8px;
+  border-left: 4px solid #1895ef;
+  border-bottom: 4px solid #1895ef;
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.8);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.human-check input:checked + span::after {
+  opacity: 1;
+  transform: rotate(-45deg) scale(1);
+}
+
+.human-check strong {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.human-check small {
+  color: #6b7280;
+  font-size: 12px;
+  text-align: right;
 }
 
 .quote-aside {
   position: sticky;
   top: 110px;
   display: grid;
-  gap: 22px;
-  padding: 30px;
+  gap: 16px;
+  padding: 24px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   background:
@@ -1357,29 +1396,29 @@ svg {
 .quote-aside h2 {
   margin: 0;
   color: var(--white);
-  font-size: 31px;
+  font-size: 27px;
   line-height: 1.15;
 }
 
 .quote-benefits {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .quote-benefits div {
   display: grid;
-  grid-template-columns: 26px 1fr;
-  gap: 14px;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
   align-items: start;
-  padding: 16px;
+  padding: 13px;
   border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.07);
 }
 
 .quote-benefits span {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-left: 4px solid var(--red);
   border-bottom: 4px solid var(--red);
   transform: rotate(-45deg);
@@ -1387,7 +1426,7 @@ svg {
 
 .quote-benefits strong {
   color: rgba(255, 255, 255, 0.92);
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .quote-contact-card {
@@ -1542,13 +1581,13 @@ svg {
 }
 
 .contact-panel {
-  padding: 32px;
+  padding: 26px;
 }
 
 .contact-panel form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px 18px;
 }
 
 .contact-panel label {
@@ -1570,7 +1609,7 @@ svg {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 7px;
-  padding: 14px 15px;
+  padding: 12px 15px;
   color: var(--ink);
   background: var(--soft);
   font: inherit;
@@ -1581,7 +1620,7 @@ svg {
 }
 
 .contact-info {
-  padding: 32px;
+  padding: 26px;
 }
 
 .contact-info div {
@@ -2128,8 +2167,17 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .human-check {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .human-check small {
+    grid-column: 2;
+    text-align: left;
+  }
+
   .contact-panel {
-    padding: 22px;
+    padding: 20px;
   }
 
   .contact-panel input,
