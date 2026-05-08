@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=movemate-1">
+  <link rel="stylesheet" href="styles.css?v=movemate-2">
 </head>
 <body>
   <div class="site-shell">
@@ -83,7 +83,7 @@
           </div>
           <div class="service-grid service-grid--five">
             <article class="service-card">
-              <img src="https://images.unsplash.com/photo-1600518464441-9306b327b5aa?auto=format&fit=crop&w=900&q=80" alt="House moving boxes">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="House prepared for moving">
               <div class="service-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3v-9Z"/></svg></div>
               <div class="service-card__body"><h3>House Moving</h3><p>Complete home relocation support for apartments, houses, packing, loading and safe transport.</p><a href="house-moving.html">Learn More <span aria-hidden="true">&rarr;</span></a></div>
             </article>
@@ -136,7 +136,7 @@
         </div>
       </section>
 
-      <section class="quote-section" id="quote">
+      <section class="quote-section quote-section--dark" id="quote">
         <div class="container contact-grid">
           <div class="contact-panel">
             <p class="eyebrow">Have a question</p>
@@ -144,13 +144,18 @@
             <form action="mailto:info@movemate.com" method="post" enctype="text/plain">
               <label>Goods Type<select name="goods_type"><option>Office Move</option><option>House Move</option><option>Furniture Move</option><option>Warehouse Migration</option></select></label>
               <label>Load<select name="load"><option>5 Tons</option><option>10 Tons</option><option>15 Tons</option></select></label>
-              <label>Pickup Address<input type="text" name="pickup" placeholder="Pickup address"></label>
-              <label>Delivery Location<input type="text" name="delivery" placeholder="Delivery location"></label>
+              <label>Pickup Address<input type="text" name="pickup" placeholder="Pickup Location"></label>
+              <label>Delivery Location<input type="text" name="delivery" placeholder="Delivery Address"></label>
               <label>Shipment Type<select name="shipment_type"><option>Local Delivery</option><option>Domestic Cargo</option><option>Express Delivery</option><option>Full Truck Load (FTL)</option><option>Less Than Truck Load (LTL)</option></select></label>
               <label>Goods Category<select name="goods_category"><option>Electronics</option><option>Furniture</option><option>Food Items</option><option>Industrial Goods</option><option>Fragile Items</option><option>Machinery</option><option>Documents</option><option>Chemicals</option><option>Vehicles</option><option>Clothing</option></select></label>
-              <label>Distance (Miles)<input type="number" name="distance" placeholder="Distance"></label>
-              <label>Name<input type="text" name="name" placeholder="Your name"></label>
+              <label class="distance-field">Dist (Miles): <span data-distance-value>713</span><input type="range" name="distance" min="1" max="1000" value="713" data-distance-range></label>
+              <label>Name<input type="text" name="name" placeholder="Good Name"></label>
               <label>Phone<input type="tel" name="phone" placeholder="Phone number"></label>
+              <div class="captcha-box" role="group" aria-label="Verification">
+                <span class="captcha-check"></span>
+                <strong>I'm not a robot</strong>
+                <span class="captcha-mark">reCAPTCHA</span>
+              </div>
               <button class="btn btn--primary" type="submit">Send <span aria-hidden="true">&rarr;</span></button>
             </form>
           </div>
@@ -179,8 +184,12 @@
         </div>
       </section>
 
-      <section class="cta">
-        <div class="container"><div class="cta__box"><span class="cta__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h12v9h2.4l2-3H22v6h-2a2.5 2.5 0 0 1-5 0H9a2.5 2.5 0 0 1-5 0H2v-3h1V6Z"/></svg></span><div><h2>Need to move something today?</h2><p>Let MoveMate handle your move, delivery or transport request with professional support.</p></div><a class="btn btn--primary" href="contact.html">Get a Free Quote Now <span aria-hidden="true">&rarr;</span></a></div></div>
+      <section class="mega-cta">
+        <div class="container mega-cta__inner">
+          <h2>Need to move something today?</h2>
+          <p>Let MoveMate handle it.</p>
+          <a class="btn btn--primary" href="contact.html">Get a Free Quote Now <span aria-hidden="true">&rarr;</span></a>
+        </div>
       </section>
     </main>
 
@@ -196,6 +205,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=movemate-1"></script>
+  <script src="script.js?v=movemate-2"></script>
 </body>
 </html>

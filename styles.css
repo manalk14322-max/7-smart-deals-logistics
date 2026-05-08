@@ -1217,8 +1217,184 @@ svg {
     var(--soft);
 }
 
+.quote-section--dark {
+  color: var(--white);
+  background:
+    radial-gradient(circle at 85% 10%, rgba(225, 22, 38, 0.16), transparent 28%),
+    linear-gradient(135deg, #061227 0%, #071b38 100%);
+}
+
+.quote-section--dark .contact-panel,
+.quote-section--dark .contact-info {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(5, 16, 35, 0.72);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.quote-section--dark .contact-panel h2,
+.quote-section--dark .contact-info h2,
+.quote-section--dark .contact-panel label,
+.quote-section--dark .service-detail__main h2 {
+  color: var(--white);
+}
+
+.quote-section--dark .contact-panel input,
+.quote-section--dark .contact-panel select,
+.quote-section--dark .contact-panel textarea {
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.quote-section--dark .contact-panel input::placeholder,
+.quote-section--dark .contact-panel textarea::placeholder {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.quote-section--dark .feature-list li {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quote-section--dark .service-detail__main p,
+.quote-section--dark .contact-info p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.distance-field {
+  grid-column: 1 / -1;
+}
+
+.distance-field span {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--white);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.distance-field input[type="range"] {
+  height: 60px;
+  padding: 0;
+  accent-color: #1895ef;
+  cursor: pointer;
+}
+
+.captcha-box {
+  grid-column: 1 / -1;
+  width: min(460px, 100%);
+  min-height: 92px;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 6px;
+  color: #111827;
+  background: #f8fafc;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.captcha-check {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #555;
+  background: var(--white);
+}
+
+.captcha-check::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  width: 18px;
+  height: 10px;
+  border-left: 4px solid #1895ef;
+  border-bottom: 4px solid #1895ef;
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.captcha-box.is-checked {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.14);
+}
+
+.captcha-box.is-checked .captcha-check::after {
+  opacity: 1;
+  transform: rotate(-45deg) scale(1);
+}
+
+.captcha-box strong {
+  color: #111827;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.captcha-mark {
+  width: 72px;
+  color: #6b7280;
+  font-size: 12px;
+  text-align: center;
+}
+
 .faq-section {
   background: var(--white);
+}
+
+.mega-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  text-align: center;
+  background:
+    linear-gradient(rgba(4, 14, 31, 0.68), rgba(4, 14, 31, 0.8)),
+    url("https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=82") center / cover;
+}
+
+.mega-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.16), transparent 34%);
+  animation: heroLightSweep 5.6s ease-in-out infinite;
+}
+
+.mega-cta__inner {
+  padding: 80px 0;
+}
+
+.mega-cta h2 {
+  max-width: 1050px;
+  margin: 0 auto 20px;
+  color: var(--white);
+  font-size: clamp(42px, 6vw, 86px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.mega-cta p {
+  margin: 0 0 34px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.mega-cta .btn {
+  min-height: 74px;
+  padding: 0 42px;
+  font-size: 21px;
+  border-radius: 8px;
 }
 
 .faq-grid {
@@ -1840,6 +2016,38 @@ svg {
   .quote-section,
   .faq-section {
     padding: 42px 0;
+  }
+
+  .mega-cta {
+    min-height: 360px;
+  }
+
+  .mega-cta__inner {
+    padding: 58px 0;
+  }
+
+  .mega-cta h2 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .mega-cta p {
+    font-size: 18px;
+  }
+
+  .mega-cta .btn {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 22px;
+    font-size: 16px;
+  }
+
+  .captcha-box {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .captcha-mark {
+    grid-column: 2;
+    text-align: left;
   }
 
   .service-detail {
