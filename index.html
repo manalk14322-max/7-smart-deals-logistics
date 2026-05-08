@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=movemate-2">
+  <link rel="stylesheet" href="styles.css?v=movemate-3">
 </head>
 <body>
   <div class="site-shell">
@@ -137,10 +137,11 @@
       </section>
 
       <section class="quote-section quote-section--dark" id="quote">
-        <div class="container contact-grid">
-          <div class="contact-panel">
-            <p class="eyebrow">Have a question</p>
-            <h2>Get in Touch with MoveMate</h2>
+        <div class="container quote-grid">
+          <div class="contact-panel quote-card">
+            <p class="eyebrow">Instant move request</p>
+            <h2>Plan Your Move in 60 Seconds</h2>
+            <p class="quote-intro">Tell us what you need moved and our team will come back with a clear, practical quote.</p>
             <form action="mailto:info@movemate.com" method="post" enctype="text/plain">
               <label>Goods Type<select name="goods_type"><option>Office Move</option><option>House Move</option><option>Furniture Move</option><option>Warehouse Migration</option></select></label>
               <label>Load<select name="load"><option>5 Tons</option><option>10 Tons</option><option>15 Tons</option></select></label>
@@ -148,23 +149,22 @@
               <label>Delivery Location<input type="text" name="delivery" placeholder="Delivery Address"></label>
               <label>Shipment Type<select name="shipment_type"><option>Local Delivery</option><option>Domestic Cargo</option><option>Express Delivery</option><option>Full Truck Load (FTL)</option><option>Less Than Truck Load (LTL)</option></select></label>
               <label>Goods Category<select name="goods_category"><option>Electronics</option><option>Furniture</option><option>Food Items</option><option>Industrial Goods</option><option>Fragile Items</option><option>Machinery</option><option>Documents</option><option>Chemicals</option><option>Vehicles</option><option>Clothing</option></select></label>
-              <label class="distance-field">Dist (Miles): <span data-distance-value>713</span><input type="range" name="distance" min="1" max="1000" value="713" data-distance-range></label>
-              <label>Name<input type="text" name="name" placeholder="Good Name"></label>
+              <label class="distance-field">Distance <span><b data-distance-value>57</b> miles</span><input type="range" name="distance" min="1" max="1000" value="57" data-distance-range></label>
+              <label>Name<input type="text" name="name" placeholder="Your name"></label>
               <label>Phone<input type="tel" name="phone" placeholder="Phone number"></label>
-              <div class="captcha-box" role="group" aria-label="Verification">
-                <span class="captcha-check"></span>
-                <strong>I'm not a robot</strong>
-                <span class="captcha-mark">reCAPTCHA</span>
-              </div>
+              <div class="form-security"><strong>Secure quote request</strong><span>Your details are only used to prepare the right moving quote.</span></div>
               <button class="btn btn--primary" type="submit">Send <span aria-hidden="true">&rarr;</span></button>
             </form>
           </div>
-          <div class="service-detail__main">
-            <p class="eyebrow">We drive efficiency</p>
-            <h2>We Deliver Confidence to Every Move</h2>
-            <ul class="feature-list">
-              <li>Reliable Transportation</li><li>Fast & Efficient Service</li><li>Safe & Secure Handling</li><li>Affordable Pricing</li><li>Flexible Pickup & Delivery</li><li>Easy Quote System</li><li>Multi-Service Support</li><li>Professional Team</li><li>Mobile-Friendly Booking</li><li>Business-Friendly Solutions</li>
-            </ul>
+          <div class="quote-aside">
+            <p class="eyebrow">Why MoveMate</p>
+            <h2>Move smarter with a team built for speed, care and clarity.</h2>
+            <div class="quote-benefits">
+              <div><span></span><strong>Safe handling for furniture, parcels and fragile items</strong></div>
+              <div><span></span><strong>Flexible pickup and delivery windows</strong></div>
+              <div><span></span><strong>Multi-service support for homes and businesses</strong></div>
+              <div><span></span><strong>Clear pricing based on distance and load</strong></div>
+            </div>
             <a class="btn btn--primary" href="contact.html">Book Now <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
@@ -205,6 +205,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=movemate-2"></script>
+  <script src="script.js?v=movemate-3"></script>
 </body>
 </html>

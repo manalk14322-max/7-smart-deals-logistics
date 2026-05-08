@@ -237,19 +237,10 @@ const addDistanceSliders = () => {
   });
 };
 
-const addCaptchaToggle = () => {
-  document.querySelectorAll(".captcha-box").forEach((box) => {
-    box.addEventListener("click", () => {
-      box.classList.toggle("is-checked");
-    });
-  });
-};
-
 window.addEventListener("load", () => {
   animateWithGsap();
   addMagneticCards();
   addHeroParallax();
   addTestimonials();
   addDistanceSliders();
-  addCaptchaToggle();
 });

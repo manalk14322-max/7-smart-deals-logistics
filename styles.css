@@ -1220,15 +1220,43 @@ svg {
 .quote-section--dark {
   color: var(--white);
   background:
-    radial-gradient(circle at 85% 10%, rgba(225, 22, 38, 0.16), transparent 28%),
-    linear-gradient(135deg, #061227 0%, #071b38 100%);
+    radial-gradient(circle at 12% 12%, rgba(24, 149, 239, 0.14), transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(225, 22, 38, 0.18), transparent 30%),
+    linear-gradient(135deg, #061024 0%, #071b38 55%, #05152b 100%);
 }
 
 .quote-section--dark .contact-panel,
 .quote-section--dark .contact-info {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: rgba(5, 16, 35, 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(5, 16, 35, 0.78);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.quote-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), #ff7a84, var(--red));
+}
+
+.quote-intro {
+  max-width: 720px;
+  margin: -4px 0 24px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
 }
 
 .quote-section--dark .contact-panel h2,
@@ -1241,9 +1269,11 @@ svg {
 .quote-section--dark .contact-panel input,
 .quote-section--dark .contact-panel select,
 .quote-section--dark .contact-panel textarea {
-  border-color: rgba(255, 255, 255, 0.08);
+  min-height: 58px;
+  border-color: rgba(255, 255, 255, 0.1);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .quote-section--dark .contact-panel input::placeholder,
@@ -1264,83 +1294,105 @@ svg {
 
 .distance-field {
   grid-column: 1 / -1;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .distance-field span {
-  display: inline-block;
-  margin-left: 6px;
+  display: block;
+  margin: 10px 0 14px;
   color: var(--white);
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1;
 }
 
+.distance-field b {
+  font-size: 38px;
+}
+
 .distance-field input[type="range"] {
-  height: 60px;
+  height: 36px;
   padding: 0;
   accent-color: #1895ef;
   cursor: pointer;
 }
 
-.captcha-box {
+.form-security {
   grid-column: 1 / -1;
-  width: min(460px, 100%);
-  min-height: 92px;
   display: grid;
-  grid-template-columns: 42px 1fr auto;
-  align-items: center;
-  gap: 18px;
-  padding: 18px;
-  border-radius: 6px;
-  color: #111827;
-  background: #f8fafc;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  gap: 5px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-.captcha-check {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 3px solid #555;
-  background: var(--white);
+.form-security strong {
+  color: var(--white);
+  font-size: 15px;
 }
 
-.captcha-check::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 7px;
-  width: 18px;
-  height: 10px;
-  border-left: 4px solid #1895ef;
-  border-bottom: 4px solid #1895ef;
-  opacity: 0;
-  transform: rotate(-45deg) scale(0.8);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+.form-security span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
 }
 
-.captcha-box.is-checked {
-  transform: translate3d(0, -2px, 0);
-  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.14);
+.quote-aside {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: 22px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
+    rgba(8, 24, 48, 0.68);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
 }
 
-.captcha-box.is-checked .captcha-check::after {
-  opacity: 1;
-  transform: rotate(-45deg) scale(1);
+.quote-aside h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: 31px;
+  line-height: 1.15;
 }
 
-.captcha-box strong {
-  color: #111827;
-  font-size: 18px;
-  font-weight: 500;
+.quote-benefits {
+  display: grid;
+  gap: 14px;
 }
 
-.captcha-mark {
-  width: 72px;
-  color: #6b7280;
-  font-size: 12px;
-  text-align: center;
+.quote-benefits div {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.quote-benefits span {
+  width: 22px;
+  height: 22px;
+  border-left: 4px solid var(--red);
+  border-bottom: 4px solid var(--red);
+  transform: rotate(-45deg);
+}
+
+.quote-benefits strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 17px;
+}
+
+.quote-contact-card {
+  position: sticky;
+  top: 110px;
 }
 
 .faq-section {
@@ -1748,6 +1800,15 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-aside,
+  .quote-contact-card {
+    position: static;
+  }
+
   .process {
     grid-template-columns: 1fr;
   }
@@ -2047,15 +2108,6 @@ svg {
     min-height: 58px;
     padding: 0 22px;
     font-size: 16px;
-  }
-
-  .captcha-box {
-    grid-template-columns: 38px 1fr;
-  }
-
-  .captcha-mark {
-    grid-column: 2;
-    text-align: left;
   }
 
   .service-detail {
