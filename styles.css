@@ -727,6 +727,10 @@ svg {
   gap: 24px;
 }
 
+.service-grid--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .service-card {
   position: relative;
   overflow: hidden;
@@ -1201,6 +1205,46 @@ svg {
   background: var(--white);
 }
 
+.quote-section,
+.faq-section {
+  padding: 64px 0;
+  background: var(--white);
+}
+
+.quote-section {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(225, 22, 38, 0.08), transparent 28%),
+    var(--soft);
+}
+
+.faq-section {
+  background: var(--white);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.faq-grid article {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+  box-shadow: 0 12px 28px rgba(6, 23, 39, 0.05);
+}
+
+.faq-grid h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.faq-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .about-grid,
 .contact-grid {
   display: grid;
@@ -1451,6 +1495,10 @@ svg {
   .hero__content {
     gap: 30px;
   }
+
+  .service-grid--five {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 940px) {
@@ -1528,6 +1576,11 @@ svg {
   .contact-grid,
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .service-grid--five,
+  .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1674,7 +1727,9 @@ svg {
   .hero__points,
   .trust-strip__inner,
   .service-grid,
-  .stats__inner {
+  .stats__inner,
+  .service-grid--five,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1781,7 +1836,9 @@ svg {
   }
 
   .about-section,
-  .contact-section {
+  .contact-section,
+  .quote-section,
+  .faq-section {
     padding: 42px 0;
   }
 
