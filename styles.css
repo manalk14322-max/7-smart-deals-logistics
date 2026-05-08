@@ -765,7 +765,7 @@ svg {
 .service-card__icon {
   position: absolute;
   left: 26px;
-  top: 118px;
+  top: 128px;
   width: 64px;
   height: 64px;
   display: grid;
@@ -785,7 +785,7 @@ svg {
 }
 
 .service-card__body {
-  padding: 48px 24px 26px;
+  padding: 62px 24px 26px;
 }
 
 .service-card h3 {
@@ -1675,6 +1675,10 @@ svg {
   .service-grid--five {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .service-card__icon {
+    top: clamp(110px, 18vw, 150px);
+  }
 }
 
 @media (max-width: 940px) {
@@ -1757,6 +1761,10 @@ svg {
   .service-grid--five,
   .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card__icon {
+    top: clamp(118px, 28vw, 160px);
   }
 }
 
@@ -1949,7 +1957,7 @@ svg {
   }
 
   .service-card__body {
-    padding: 44px 20px 24px;
+    padding: 58px 20px 24px;
   }
 
   .service-card p {
@@ -2129,7 +2137,4 @@ svg {
     font-size: 11px;
   }
 
-  .service-card__icon {
-    top: 92px;
-  }
 }
