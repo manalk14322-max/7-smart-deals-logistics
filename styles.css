@@ -1211,13 +1211,9 @@ svg {
   background: var(--white);
 }
 
-.quote-section {
-  background:
-    radial-gradient(circle at 82% 10%, rgba(225, 22, 38, 0.08), transparent 28%),
-    var(--soft);
-}
-
 .quote-section--dark {
+  position: relative;
+  overflow: hidden;
   color: var(--white);
   background:
     radial-gradient(circle at 12% 12%, rgba(24, 149, 239, 0.14), transparent 28%),
@@ -1225,38 +1221,103 @@ svg {
     linear-gradient(135deg, #061024 0%, #071b38 55%, #05152b 100%);
 }
 
+.quote-section--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+}
+
 .quote-section--dark .contact-panel,
 .quote-section--dark .contact-info {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(5, 16, 35, 0.78);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    rgba(5, 16, 35, 0.78);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
 }
 
 .quote-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 330px;
-  gap: 30px;
+  position: relative;
+  z-index: 1;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.65fr);
+  gap: 24px;
   align-items: start;
 }
 
 .quote-card {
   position: relative;
   overflow: hidden;
+  border-radius: 16px;
+}
+
+.quote-card.contact-panel {
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.quote-card form {
+  gap: 14px 16px;
+}
+
+.quote-card .btn {
+  min-height: 56px;
+  margin-top: 2px;
+  border-radius: 10px;
 }
 
 .quote-card::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
-  height: 4px;
-  background: linear-gradient(90deg, var(--red), #ff7a84, var(--red));
+  height: 5px;
+  background: linear-gradient(90deg, var(--red), #ff7a84 45%, #1895ef);
 }
 
 .quote-intro {
   max-width: 720px;
-  margin: -8px 0 18px;
+  margin: -8px 0 16px;
   color: rgba(255, 255, 255, 0.72);
   font-weight: 600;
+}
+
+.quote-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 18px;
+}
+
+.quote-steps span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quote-steps b {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--red);
+  font-size: 12px;
 }
 
 .quote-section--dark .contact-panel h2,
@@ -1269,16 +1330,30 @@ svg {
 .quote-section--dark .contact-panel input,
 .quote-section--dark .contact-panel select,
 .quote-section--dark .contact-panel textarea {
-  min-height: 50px;
-  border-color: rgba(255, 255, 255, 0.1);
+  min-height: 52px;
+  border-color: rgba(255, 255, 255, 0.12);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.11);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.quote-section--dark .contact-panel input:focus,
+.quote-section--dark .contact-panel select:focus,
+.quote-section--dark .contact-panel textarea:focus {
+  outline: none;
+  border-color: rgba(24, 149, 239, 0.72);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(24, 149, 239, 0.13);
 }
 
 .quote-section--dark .contact-panel input::placeholder,
 .quote-section--dark .contact-panel textarea::placeholder {
   color: rgba(255, 255, 255, 0.62);
+}
+
+.quote-section--dark .contact-panel select option {
+  color: #111827;
 }
 
 .quote-section--dark .feature-list li {
@@ -1294,26 +1369,31 @@ svg {
 
 .distance-field {
   grid-column: 1 / -1;
-  padding: 12px 16px;
+  padding: 14px 16px 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(24, 149, 239, 0.11), rgba(255, 255, 255, 0.04)),
+    rgba(255, 255, 255, 0.05);
 }
 
 .distance-field span {
-  display: block;
-  margin: 6px 0 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 6px 0 10px;
   color: var(--white);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1;
 }
 
 .distance-field b {
-  font-size: 30px;
+  color: var(--white);
+  font-size: 32px;
 }
 
 .distance-field input[type="range"] {
-  height: 28px;
+  height: 24px;
   padding: 0;
   accent-color: #1895ef;
   cursor: pointer;
@@ -1326,11 +1406,12 @@ svg {
   align-items: center;
   gap: 14px;
   width: min(460px, 100%);
-  padding: 13px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  padding: 12px 15px;
+  border: 1px solid rgba(2, 6, 23, 0.1);
+  border-radius: 12px;
   color: rgba(255, 255, 255, 0.82);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
 
@@ -1383,21 +1464,24 @@ svg {
   position: sticky;
   top: 110px;
   display: grid;
-  gap: 16px;
+  gap: 14px;
+  overflow: hidden;
   padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
-    rgba(8, 24, 48, 0.68);
+    radial-gradient(circle at 100% 0, rgba(225, 22, 38, 0.2), transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.045)),
+    rgba(8, 24, 48, 0.72);
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
 }
 
 .quote-aside h2 {
   margin: 0;
   color: var(--white);
-  font-size: 27px;
-  line-height: 1.15;
+  font-size: clamp(25px, 2.2vw, 34px);
+  line-height: 1.08;
 }
 
 .quote-benefits {
@@ -1407,21 +1491,40 @@ svg {
 
 .quote-benefits div {
   display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 12px;
-  align-items: start;
-  padding: 13px;
+  grid-template-columns: 34px 1fr;
+  gap: 11px;
+  align-items: center;
+  min-height: 64px;
+  padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.075);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.quote-benefits div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(225, 22, 38, 0.32);
+  background: rgba(255, 255, 255, 0.11);
 }
 
 .quote-benefits span {
-  width: 18px;
-  height: 18px;
+  position: relative;
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(225, 22, 38, 0.14);
+}
+
+.quote-benefits span::before {
+  content: "";
+  width: 14px;
+  height: 8px;
   border-left: 4px solid var(--red);
   border-bottom: 4px solid var(--red);
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translate(1px, -1px);
 }
 
 .quote-benefits strong {
@@ -1840,6 +1943,10 @@ svg {
   }
 
   .quote-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-steps {
     grid-template-columns: 1fr;
   }
 
