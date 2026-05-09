@@ -487,13 +487,13 @@ svg {
   z-index: -2;
   background-color: #06192d;
   background-image:
-    radial-gradient(circle at 78% 46%, rgba(18, 206, 255, 0.16), transparent 25%),
-    linear-gradient(90deg, rgba(2, 8, 23, 0.98) 0%, rgba(5, 18, 34, 0.92) 36%, rgba(5, 18, 34, 0.45) 58%, rgba(5, 18, 34, 0.08) 100%),
-    linear-gradient(180deg, rgba(7, 34, 59, 0.08) 0%, rgba(5, 18, 34, 0.58) 100%),
+    radial-gradient(circle at 50% 22%, rgba(24, 149, 239, 0.22), transparent 28%),
+    linear-gradient(180deg, rgba(2, 8, 23, 0.46) 0%, rgba(2, 8, 23, 0.62) 54%, rgba(2, 8, 23, 0.92) 100%),
+    linear-gradient(90deg, rgba(2, 8, 23, 0.66), rgba(2, 8, 23, 0.08), rgba(2, 8, 23, 0.7)),
     url("assets/hero-perfect-truck.png");
-  background-position: center, center, center, right 6vw center;
+  background-position: center, center, center, center;
   background-repeat: no-repeat;
-  background-size: auto, auto, auto, min(56vw, 820px) auto;
+  background-size: auto, auto, auto, cover;
   transform: translate3d(var(--hero-shift-x), var(--hero-shift-y), 0) scale(1.01);
   transition: transform 0.35s ease-out;
   will-change: transform;
@@ -504,7 +504,9 @@ svg {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 72%, rgba(5, 18, 34, 0.82) 100%);
+  background:
+    radial-gradient(circle at 50% 42%, transparent 0%, rgba(2, 8, 23, 0.22) 52%, rgba(2, 8, 23, 0.78) 100%),
+    linear-gradient(180deg, rgba(2, 8, 23, 0.18), rgba(2, 8, 23, 0.92));
 }
 
 .hero__content {
@@ -580,27 +582,39 @@ svg {
 .hero__points {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 26px;
-  width: min(850px, 100%);
-  margin-top: auto;
-  padding-top: 54px;
+  gap: 0;
+  width: 100%;
+  margin-top: clamp(38px, 6vw, 70px);
+  padding: 0;
+  border-radius: 20px 20px 0 0;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 -24px 70px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
 }
 
 .point {
   display: grid;
-  grid-template-columns: 36px 1fr;
-  column-gap: 12px;
-  align-items: center;
-  min-height: 68px;
-  padding: 0;
-  border: 0;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: start;
+  gap: 8px;
+  min-height: 132px;
+  padding: 24px 16px;
+  color: var(--ink);
+  border-right: 1px solid var(--line);
   border-radius: 0;
   background: transparent;
+  text-align: center;
   transition: transform 0.28s ease, color 0.28s ease;
 }
 
+.point:last-child {
+  border-right: 0;
+}
+
 .point:hover {
-  color: #c9f7ff;
+  color: var(--navy);
+  background: #f7fbff;
   transform: translate3d(0, -4px, 0);
 }
 
@@ -624,11 +638,11 @@ svg {
 
 .point strong {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .point small {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
   font-size: 12px;
 }
 
@@ -1908,45 +1922,56 @@ svg {
 .hero {
   min-height: calc(100vh - 42px);
   background:
-    radial-gradient(circle at 78% 20%, rgba(30, 144, 255, 0.22), transparent 30%),
-    radial-gradient(circle at 20% 72%, rgba(225, 22, 38, 0.14), transparent 32%),
+    radial-gradient(circle at 52% 18%, rgba(24, 149, 239, 0.22), transparent 30%),
+    radial-gradient(circle at 72% 72%, rgba(225, 22, 38, 0.16), transparent 32%),
     #020817;
 }
 
 .hero__content {
   min-height: calc(100vh - 128px);
-  padding: clamp(72px, 9vw, 118px) 0 34px;
+  align-items: center;
+  padding: clamp(82px, 10vw, 132px) 0 0;
+  text-align: center;
 }
 
 .hero h1 {
-  max-width: 760px;
-  font-size: clamp(46px, 7vw, 92px);
-  letter-spacing: -0.02em;
+  max-width: 980px;
+  margin: 0 auto;
+  color: var(--white);
+  font-size: clamp(46px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
 }
 
 .hero h1::first-line {
-  background: linear-gradient(90deg, #ffffff, #c7e8ff 58%, #ff5261);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--white);
+  background: none;
 }
 
 .hero__copy {
   max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: clamp(17px, 1.5vw, 22px);
   color: rgba(255, 255, 255, 0.84);
 }
 
+.hero__actions {
+  justify-content: center;
+}
+
 .hero-dashboard {
-  position: absolute;
-  right: max(32px, calc((100vw - 1120px) / 2));
-  top: 52%;
+  position: relative;
+  right: auto;
+  top: auto;
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-  width: min(390px, 38vw);
-  transform: translateY(-50%);
+  width: min(560px, 100%);
+  margin: clamp(34px, 5vw, 58px) auto 0;
+  transform: none;
   pointer-events: none;
 }
 
@@ -2277,6 +2302,36 @@ svg {
   background:
     radial-gradient(circle at 80% 10%, rgba(225, 22, 38, 0.18), transparent 28%),
     linear-gradient(135deg, #020817, #07172e 58%, #020817);
+}
+
+.hero {
+  min-height: calc(100vh - 42px);
+}
+
+.hero__text {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #bdefff;
+  background: rgba(8, 47, 95, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+.hero-dashboard__card {
+  text-align: left;
+}
+
+.hero__points {
+  max-width: 1120px;
 }
 
 .quote-section--dark {
@@ -3590,6 +3645,61 @@ svg {
 
   .footer-bottom {
     padding: 16px 0 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__content {
+    padding: 58px 0 0;
+    text-align: center;
+  }
+
+  .hero__media {
+    background-image:
+      radial-gradient(circle at 50% 22%, rgba(24, 149, 239, 0.18), transparent 30%),
+      linear-gradient(180deg, rgba(2, 8, 23, 0.52), rgba(2, 8, 23, 0.96)),
+      url("assets/hero-perfect-truck.png");
+    background-position: center, center, center;
+    background-size: auto, auto, cover;
+  }
+
+  .hero h1 {
+    max-width: 420px;
+    margin-inline: auto;
+    font-size: clamp(36px, 12vw, 52px);
+    line-height: 0.98;
+  }
+
+  .hero-dashboard {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero__points {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 34px;
+    border-radius: 18px 18px 0 0;
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .point {
+    min-height: 104px;
+    padding: 20px 14px;
+    color: var(--ink);
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  .point:last-child {
+    border-bottom: 0;
+  }
+
+  .point small {
+    color: var(--muted);
   }
 }
 
