@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=smartdeals-8">
+  <link rel="stylesheet" href="styles.css?v=smartdeals-9">
 </head>
 <body>
   <div class="site-shell">
@@ -187,10 +187,36 @@
 
       <section class="quote-section quote-section--dark" id="quote">
         <div class="container quote-grid">
-          <div class="contact-panel quote-card">
+          <div class="quote-aside quote-aside--premium">
+            <div class="quote-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
             <p class="eyebrow">Instant logistics request</p>
-            <h2>Request a Logistics Quote</h2>
-            <p class="quote-intro">Tell us what you need transported and our team will come back with a clear, practical quote.</p>
+            <h2>AI-style freight planning for fast, clear quotes.</h2>
+            <p class="quote-intro">Share your route, load and delivery details. Our team turns it into a practical logistics plan with clear next steps.</p>
+            <div class="quote-metrics" aria-label="Service highlights">
+              <div><strong>24</strong><span>Hour response focus</span></div>
+              <div><strong>500+</strong><span>Monthly movements</span></div>
+              <div><strong>99%</strong><span>Care-first handling</span></div>
+            </div>
+            <div class="quote-benefits">
+              <div><span></span><strong>Freight, storage and business transport support</strong></div>
+              <div><span></span><strong>Flexible pickup and delivery windows</strong></div>
+              <div><span></span><strong>Pricing guided by distance, load and timing</strong></div>
+            </div>
+            <div class="quote-mini-dashboard" aria-hidden="true">
+              <div class="quote-mini-dashboard__top"><strong>Route Intelligence</strong><em>Live</em></div>
+              <div class="quote-route"><span></span><span></span><span></span></div>
+              <div class="quote-signal"><span>Pickup</span><b>Confirmed</b></div>
+              <div class="quote-signal"><span>Handling</span><b>Secure</b></div>
+            </div>
+          </div>
+          <div class="contact-panel quote-card quote-card--premium">
+            <div class="quote-card__header">
+              <div>
+                <p class="eyebrow">Quote console</p>
+                <h2>Get Instant Quote</h2>
+              </div>
+              <span class="quote-status">Online</span>
+            </div>
             <div class="quote-steps" aria-label="Quote steps">
               <span><b>1</b> Job details</span>
               <span><b>2</b> Route & load</span>
@@ -207,19 +233,8 @@
               <label>Name<input type="text" name="name" placeholder="Your name"></label>
               <label>Phone<input type="tel" name="phone" placeholder="Phone number"></label>
               <label class="human-check"><input type="checkbox" name="human_check" required><span></span><strong>I'm not a robot</strong><small>Protected request</small></label>
-              <button class="btn btn--primary" type="submit">Send <span aria-hidden="true">&rarr;</span></button>
+              <button class="btn btn--primary quote-submit" type="submit">Get Instant Quote <span aria-hidden="true">&rarr;</span></button>
             </form>
-          </div>
-          <div class="quote-aside">
-            <p class="eyebrow">Why Choose Us</p>
-            <h2>Fast quotes, careful handling and dependable logistics support.</h2>
-            <div class="quote-benefits">
-              <div><span></span><strong>Furniture, parcels and fragile items handled carefully</strong></div>
-              <div><span></span><strong>Flexible pickup and delivery windows</strong></div>
-              <div><span></span><strong>Business, freight and storage support</strong></div>
-              <div><span></span><strong>Pricing guided by distance, load and timing</strong></div>
-            </div>
-            <a class="btn btn--primary" href="contact.html">Book Now <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </section>
@@ -270,6 +285,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=smartdeals-8"></script>
+  <script src="script.js?v=smartdeals-9"></script>
 </body>
 </html>
