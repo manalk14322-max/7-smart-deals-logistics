@@ -2669,6 +2669,244 @@ svg {
     0 0 62px rgba(217, 178, 92, 0.2) !important;
 }
 
+.quote-section--dark {
+  padding: clamp(62px, 8vw, 104px) 0;
+  color: #071426;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.28), transparent 22%),
+    radial-gradient(circle at 85% 78%, rgba(8, 47, 95, 0.18), transparent 28%),
+    linear-gradient(135deg, #f27c64 0%, #f06e55 46%, #ea604b 100%);
+}
+
+.quote-section--dark::before,
+.quote-section--dark::after {
+  opacity: 0;
+}
+
+.quote-modal {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(310px, 0.9fr) minmax(420px, 1.15fr);
+  min-height: 690px;
+  overflow: hidden;
+  border: 6px solid #251108;
+  border-radius: 30px;
+  background: #f7f7f5;
+  box-shadow:
+    0 36px 90px rgba(37, 17, 8, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+}
+
+.quote-modal::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  z-index: -1;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(225, 22, 38, 0.12), transparent 28%),
+    radial-gradient(circle at 82% 28%, rgba(8, 47, 95, 0.1), transparent 30%);
+}
+
+.quote-visual {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100%;
+  padding: clamp(28px, 4vw, 44px);
+  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(225, 22, 38, 0.1), rgba(225, 22, 38, 0.88)),
+    linear-gradient(135deg, #e11626, #082f5f);
+}
+
+.quote-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 8, 23, 0.1), rgba(2, 8, 23, 0.42)),
+    url("assets/hero-perfect-truck.png") center bottom 20px / min(560px, 112%) auto no-repeat;
+  filter: drop-shadow(0 28px 38px rgba(0, 0, 0, 0.36));
+  transform: scale(1.03);
+}
+
+.quote-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 85%);
+}
+
+.quote-visual__content {
+  position: relative;
+  z-index: 1;
+  max-width: 390px;
+}
+
+.quote-visual h2 {
+  margin: 0 0 14px;
+  color: var(--white);
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.quote-visual p:not(.eyebrow) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 600;
+}
+
+.quote-visual__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.quote-visual__badges span {
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.quote-card--premium.contact-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px, 5vw, 62px);
+  border: 0;
+  border-radius: 0;
+  background: #f7f7f5;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.quote-card--premium::after {
+  display: none;
+}
+
+.quote-card__header {
+  display: grid;
+  justify-items: center;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.quote-card__header .eyebrow {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  color: #d24519;
+  background: #fff0ea;
+  box-shadow: 0 12px 28px rgba(225, 22, 38, 0.08);
+  text-transform: none;
+}
+
+.quote-card__header h2 {
+  color: #101828;
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+.quote-status {
+  display: none;
+}
+
+.quote-card--premium form {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 26px;
+}
+
+.quote-card--premium label {
+  gap: 5px;
+  color: #777f8d !important;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.quote-section--dark .quote-card--premium input,
+.quote-section--dark .quote-card--premium select {
+  min-height: 38px;
+  padding: 6px 0 12px;
+  border: 0;
+  border-bottom: 1.5px solid rgba(16, 24, 40, 0.32);
+  border-radius: 0;
+  color: #101828;
+  background: transparent;
+  box-shadow: none;
+}
+
+.quote-section--dark .quote-card--premium input::placeholder {
+  color: #98a2b3;
+}
+
+.quote-section--dark .quote-card--premium input:focus,
+.quote-section--dark .quote-card--premium select:focus {
+  border-color: #082f5f;
+  background: transparent;
+  box-shadow: 0 10px 18px -18px rgba(8, 47, 95, 0.7);
+  transform: none;
+}
+
+.quote-section--dark .quote-card--premium select option {
+  color: #101828;
+}
+
+.quote-card--premium .distance-field {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.quote-card--premium .distance-field span {
+  margin: 5px 0 8px;
+  color: #101828;
+}
+
+.quote-card--premium .distance-field b {
+  color: #082f5f;
+  font-size: 28px;
+}
+
+.quote-card--premium .distance-field input[type="range"] {
+  accent-color: #082f5f;
+}
+
+.quote-card--premium .human-check {
+  width: 100%;
+  min-height: 70px;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(16, 24, 40, 0.08);
+}
+
+.quote-submit {
+  min-height: 54px;
+  border-radius: 999px !important;
+  color: var(--white);
+  background: linear-gradient(135deg, #082f5f, #2337a8) !important;
+  box-shadow: 0 16px 34px rgba(8, 47, 95, 0.24) !important;
+}
+
+.quote-submit:hover {
+  box-shadow: 0 22px 44px rgba(8, 47, 95, 0.32) !important;
+}
+
 @keyframes quoteGridDrift {
   from {
     background-position: 0 0, 0 0;
@@ -2892,6 +3130,15 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .quote-modal {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .quote-visual {
+    min-height: 390px;
+  }
+
   .quote-aside--premium {
     position: relative;
   }
@@ -2955,10 +3202,30 @@ svg {
     padding: 46px 0;
   }
 
+  .quote-modal {
+    border-width: 4px;
+    border-radius: 22px;
+  }
+
+  .quote-visual {
+    min-height: 340px;
+    padding: 22px;
+  }
+
   .quote-aside--premium,
   .quote-card--premium.contact-panel {
     border-radius: 22px;
     padding: 20px;
+  }
+
+  .quote-card--premium.contact-panel {
+    border-radius: 0;
+    padding: 26px 20px;
+  }
+
+  .quote-card--premium form {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .quote-aside--premium h2 {
