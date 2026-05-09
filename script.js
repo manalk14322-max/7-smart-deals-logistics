@@ -12,7 +12,7 @@ const createChrome = () => {
   preloader.innerHTML = `
     <div class="preloader__mark">
       <span class="preloader__truck"></span>
-      <strong>MoveMate Logistics</strong>
+      <strong>7 Smart Deals Logistics</strong>
       <i></i>
     </div>
   `;
