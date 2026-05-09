@@ -189,6 +189,37 @@ svg {
   will-change: transform;
 }
 
+.particle-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-field span {
+  position: absolute;
+  left: var(--x);
+  bottom: -30px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: rgba(18, 206, 255, 0.42);
+  box-shadow: 0 0 18px rgba(18, 206, 255, 0.48);
+  animation: particleRise 13s linear infinite;
+  animation-delay: var(--delay);
+}
+
+.particle-field span:nth-child(3n) {
+  background: rgba(217, 178, 92, 0.35);
+  box-shadow: 0 0 18px rgba(217, 178, 92, 0.36);
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
 .container {
   width: min(1120px, calc(100% - 52px));
   margin: 0 auto;
@@ -431,9 +462,13 @@ svg {
   z-index: -1;
   opacity: 0.42;
   pointer-events: none;
-  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.16) 44%, transparent 62%);
+  background:
+    linear-gradient(rgba(18, 206, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 206, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.16) 44%, transparent 62%);
+  background-size: 72px 72px, 72px 72px, auto;
   transform: translate3d(-120%, 0, 0);
-  animation: heroLightSweep 4.8s ease-in-out infinite;
+  animation: heroLightSweep 4.8s ease-in-out infinite, heroGridMove 18s linear infinite;
 }
 
 .hero::after {
@@ -452,12 +487,13 @@ svg {
   z-index: -2;
   background-color: #06192d;
   background-image:
-    linear-gradient(90deg, rgba(5, 18, 34, 0.98) 0%, rgba(5, 18, 34, 0.92) 36%, rgba(5, 18, 34, 0.45) 58%, rgba(5, 18, 34, 0.08) 100%),
+    radial-gradient(circle at 78% 46%, rgba(18, 206, 255, 0.16), transparent 25%),
+    linear-gradient(90deg, rgba(2, 8, 23, 0.98) 0%, rgba(5, 18, 34, 0.92) 36%, rgba(5, 18, 34, 0.45) 58%, rgba(5, 18, 34, 0.08) 100%),
     linear-gradient(180deg, rgba(7, 34, 59, 0.08) 0%, rgba(5, 18, 34, 0.58) 100%),
     url("assets/hero-perfect-truck.png");
-  background-position: center, center, right 6vw center;
+  background-position: center, center, center, right 6vw center;
   background-repeat: no-repeat;
-  background-size: auto, auto, min(56vw, 820px) auto;
+  background-size: auto, auto, auto, min(56vw, 820px) auto;
   transform: translate3d(var(--hero-shift-x), var(--hero-shift-y), 0) scale(1.01);
   transition: transform 0.35s ease-out;
   will-change: transform;
@@ -560,6 +596,12 @@ svg {
   border: 0;
   border-radius: 0;
   background: transparent;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.point:hover {
+  color: #c9f7ff;
+  transform: translate3d(0, -4px, 0);
 }
 
 .point__icon,
@@ -1971,8 +2013,36 @@ svg {
   transition: transform 0.55s ease;
 }
 
+.btn::after {
+  content: "";
+  position: absolute;
+  left: var(--ripple-x, 50%);
+  top: var(--ripple-y, 50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+}
+
 .btn:hover::before {
   transform: translateX(120%);
+}
+
+.btn.is-rippling::after {
+  animation: buttonRipple 0.6s ease-out;
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.btn:hover span {
+  transform: translateX(4px);
 }
 
 .btn--primary {
@@ -2011,6 +2081,13 @@ svg {
   font-size: 13px;
   font-weight: 900;
   text-align: center;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.brand-strip span:hover {
+  border-color: rgba(18, 206, 255, 0.32);
+  box-shadow: 0 16px 34px rgba(18, 206, 255, 0.12);
+  transform: translate3d(0, -4px, 0);
 }
 
 .services,
@@ -2031,9 +2108,30 @@ svg {
   box-shadow: 0 22px 48px rgba(8, 19, 34, 0.08);
 }
 
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(18, 206, 255, 0.14), transparent 32%, rgba(225, 22, 38, 0.09));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
 .service-card__icon {
+  z-index: 2;
   background: linear-gradient(135deg, var(--red), #ff4c5a);
   box-shadow: 0 18px 34px rgba(225, 22, 38, 0.3);
+}
+
+.service-card__body {
+  position: relative;
+  z-index: 2;
 }
 
 .tracking-showcase {
@@ -2128,6 +2226,8 @@ svg {
   border-radius: 999px;
   background: linear-gradient(90deg, var(--red), #1895ef);
   transform: translateY(-50%);
+  transform-origin: left center;
+  animation: routePulse 3.2s ease-in-out infinite;
 }
 
 .route-line i {
@@ -2408,6 +2508,8 @@ svg {
   height: 2px;
   background: linear-gradient(90deg, #12ceff, #d9b25c);
   transform: translateY(-50%);
+  transform-origin: left center;
+  animation: routePulse 3s ease-in-out infinite;
 }
 
 .quote-route span {
@@ -2599,6 +2701,53 @@ svg {
   }
   to {
     transform: translate3d(0, 8px, 0);
+  }
+}
+
+@keyframes particleRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.7);
+  }
+  15%,
+  82% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(24px, -110vh, 0) scale(1.1);
+  }
+}
+
+@keyframes heroGridMove {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 72px 72px, 72px 72px, 0 0;
+  }
+}
+
+@keyframes buttonRipple {
+  0% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(28);
+  }
+}
+
+@keyframes routePulse {
+  0%,
+  100% {
+    opacity: 0.52;
+    transform: translateY(-50%) scaleX(0.72);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
   }
 }
 
@@ -2835,7 +2984,8 @@ svg {
 
   body::before,
   body::after,
-  .cursor-glow {
+  .cursor-glow,
+  .particle-field {
     display: none;
   }
 
@@ -3180,6 +3330,10 @@ svg {
   }
 
   .preloader {
+    display: none;
+  }
+
+  .particle-field {
     display: none;
   }
 }

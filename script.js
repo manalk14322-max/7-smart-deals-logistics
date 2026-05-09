@@ -31,6 +31,17 @@ const createChrome = () => {
     });
   }
 
+  const particles = document.createElement("div");
+  particles.className = "particle-field";
+  particles.setAttribute("aria-hidden", "true");
+  particles.innerHTML = Array.from({ length: isTouch ? 10 : 22 }, (_, index) => {
+    const x = Math.round((index * 37) % 100);
+    const delay = ((index % 9) * -0.7).toFixed(1);
+    const size = 3 + (index % 4);
+    return `<span style="--x:${x}%;--delay:${delay}s;--size:${size}px"></span>`;
+  }).join("");
+  document.body.append(particles);
+
   return { preloader, progress };
 };
 
@@ -112,33 +123,66 @@ const animateWithGsap = () => {
     .from(".hero h1, .page-hero h1", { opacity: 0, y: 28, filter: "blur(10px)", duration: 0.8 }, "-=0.45")
     .from(".hero__copy, .page-hero p:last-child", { opacity: 0, y: 22, duration: 0.62 }, "-=0.45")
     .from(".hero__actions .btn", { opacity: 0, y: 18, duration: 0.5, stagger: 0.14 }, "-=0.34")
+    .from(".hero-dashboard__card", { opacity: 0, x: 38, y: 18, rotate: 2, filter: "blur(8px)", duration: 0.7, stagger: 0.12 }, "-=0.22")
     .from(".hero__points .point", { opacity: 0, y: 24, duration: 0.5, stagger: 0.12 }, "-=0.2")
     .from(".hero__media", { opacity: 0.2, scale: 1.05, duration: 1.15 }, 2.15);
 
-  gsap.utils.toArray("section:not(.hero):not(.page-hero), .service-detail__main, .service-sidebar, .contact-panel, .contact-info").forEach((section) => {
+  gsap.utils.toArray("section:not(.hero):not(.page-hero), .service-detail__main, .service-sidebar, .contact-panel, .contact-info").forEach((section, index) => {
     gsap.from(section, {
       opacity: 0,
       y: 72,
+      filter: "blur(8px)",
       duration: 0.85,
       ease: "power3.out",
       scrollTrigger: {
         trigger: section,
         start: "top 84%",
         once: true
+      },
+      delay: index % 2 ? 0.04 : 0
+    });
+  });
+
+  gsap.utils.toArray(".service-grid, .process, .testimonial-track, .trust-strip__inner, .stats__inner, .brand-strip__inner").forEach((group) => {
+    gsap.from(group.children, {
+      opacity: 0,
+      y: 46,
+      scale: 0.96,
+      filter: "blur(6px)",
+      duration: 0.62,
+      stagger: 0.08,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: group,
+        start: "top 82%",
+        once: true
       }
     });
   });
 
-  gsap.from(".service-card, .process-card, .testimonial-card, .trust-item, .stat", {
+  gsap.from(".tracking-panel, .quote-mini-dashboard", {
     opacity: 0,
-    y: 46,
-    scale: 0.96,
-    duration: 0.62,
-    stagger: 0.09,
+    y: 34,
+    rotateX: 8,
+    duration: 0.8,
     ease: "power3.out",
     scrollTrigger: {
-      trigger: ".service-grid, .process, .testimonial-track, .trust-strip, .stats",
-      start: "top 82%",
+      trigger: ".tracking-showcase",
+      start: "top 74%",
+      once: true
+    }
+  });
+
+  gsap.from(".quote-aside--premium > *:not(.quote-orbit), .quote-card--premium > *", {
+    opacity: 0,
+    y: 28,
+    filter: "blur(7px)",
+    duration: 0.62,
+    stagger: 0.08,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".quote-section",
+      start: "top 72%",
       once: true
     }
   });
@@ -176,13 +220,35 @@ const animateWithGsap = () => {
         scrub: 0.8
       }
     });
+
+    gsap.to(".tracking-panel", {
+      y: -24,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".tracking-showcase",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.9
+      }
+    });
+
+    gsap.to(".quote-orbit", {
+      y: 34,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".quote-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1
+      }
+    });
   }
 };
 
 const addMagneticCards = () => {
   if (isTouch || reduceMotion) return;
 
-  document.querySelectorAll(".service-card, .process-card, .testimonial-card").forEach((card) => {
+  document.querySelectorAll(".service-card, .process-card, .testimonial-card, .quote-card--premium, .tracking-panel").forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
       const x = event.clientX - rect.left;
@@ -237,10 +303,24 @@ const addDistanceSliders = () => {
   });
 };
 
+const addButtonRipples = () => {
+  document.querySelectorAll(".btn").forEach((button) => {
+    button.addEventListener("pointerdown", (event) => {
+      const rect = button.getBoundingClientRect();
+      button.style.setProperty("--ripple-x", `${event.clientX - rect.left}px`);
+      button.style.setProperty("--ripple-y", `${event.clientY - rect.top}px`);
+      button.classList.remove("is-rippling");
+      void button.offsetWidth;
+      button.classList.add("is-rippling");
+    });
+  });
+};
+
 window.addEventListener("load", () => {
   animateWithGsap();
   addMagneticCards();
   addHeroParallax();
   addTestimonials();
   addDistanceSliders();
+  addButtonRipples();
 });
