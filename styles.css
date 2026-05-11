@@ -3862,6 +3862,18 @@ svg {
 }
 
 /* Service card fix: prevent icon/title overlap */
+.brand-strip {
+  display: none;
+}
+
+.trust-strip {
+  border-bottom: 1px solid var(--line);
+}
+
+.services {
+  padding-top: 74px;
+}
+
 .service-card {
   overflow: visible;
 }
