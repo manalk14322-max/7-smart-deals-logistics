@@ -3861,6 +3861,61 @@ svg {
   }
 }
 
+/* Service card fix: prevent icon/title overlap */
+.service-card {
+  overflow: visible;
+}
+
+.service-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.9 / 1;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+}
+
+.service-card__icon {
+  left: 28px;
+  top: clamp(118px, 8.7vw, 150px);
+  width: 58px;
+  height: 58px;
+  border-width: 4px;
+  z-index: 3;
+}
+
+.service-card__icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.service-card__body {
+  position: relative;
+  z-index: 2;
+  padding: 78px 24px 26px;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  line-height: 1.18;
+}
+
+@media (max-width: 1100px) {
+  .service-card__icon {
+    top: clamp(112px, 18vw, 150px);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-card__icon {
+    left: 24px;
+    top: clamp(128px, 43vw, 190px);
+  }
+
+  .service-card__body {
+    padding-top: 76px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
