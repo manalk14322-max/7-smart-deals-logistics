@@ -3868,10 +3868,22 @@ svg {
 
 .trust-strip {
   border-bottom: 1px solid var(--line);
+  padding: 34px 0;
+  background: #ffffff;
 }
 
 .services {
   padding-top: 74px;
+}
+
+.hero__points {
+  margin-bottom: 44px;
+  border-radius: 18px;
+}
+
+.trust-strip__inner {
+  min-height: auto;
+  padding: 0;
 }
 
 .service-card {
