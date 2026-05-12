@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letterhead | 7 Smart Deals & Logistics UK Ltd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #071426;
+      --deep: #0b1f36;
+      --red: #ef233c;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d9e2ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #eef3f8;
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(10, 25, 41, 0.18);
+    }
+
+    .top-band {
+      height: 18px;
+      background: linear-gradient(90deg, var(--navy), var(--deep), var(--red));
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      padding: 34px 46px 26px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mark {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #08192d, #123454);
+      box-shadow: 0 16px 28px rgba(7, 20, 38, 0.2);
+    }
+
+    .mark svg {
+      width: 39px;
+      height: 39px;
+      fill: #fff;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 25px;
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: 7px 0 0;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      min-width: 230px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f7f9fc;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .contact strong {
+      display: inline-block;
+      width: 64px;
+      color: var(--navy);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      padding: 18px 46px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fbfdff, #f6f9fd);
+    }
+
+    .meta div {
+      padding-left: 14px;
+      border-left: 3px solid var(--red);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--navy);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .content {
+      position: relative;
+      min-height: 650px;
+      padding: 48px 54px 120px;
+    }
+
+    .watermark {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      opacity: 0.035;
+    }
+
+    .watermark span {
+      color: var(--navy);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 72px;
+      font-weight: 800;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(-18deg);
+    }
+
+    .date-line {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .writing-lines {
+      display: grid;
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .writing-lines span {
+      display: block;
+      height: 1px;
+      background: #e4eaf2;
+    }
+
+    .signature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      margin-top: 90px;
+    }
+
+    .signature div {
+      padding-top: 12px;
+      border-top: 1px solid #aeb8c7;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .signature strong {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 22px 46px 26px;
+      color: #fff;
+      background: linear-gradient(90deg, var(--navy), #102b47);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .footer strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .footer span {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 46px;
+      width: 140px;
+      height: 4px;
+      background: var(--red);
+      border-radius: 0 0 8px 8px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-band"></div>
+
+    <header class="header">
+      <section class="brand" aria-label="Company brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M5 12h25v20h3.5l4-7H43v12h-4a4 4 0 0 1-8 0H18a4 4 0 0 1-8 0H5V12Z"/>
+          </svg>
+        </span>
+        <div>
+          <h1>7 Smart Deals &amp;<br>Logistics UK Ltd</h1>
+          <p>Reliable logistics delivered with care</p>
+        </div>
+      </section>
+
+      <aside class="contact" aria-label="Contact details">
+        <div><strong>Phone</strong> 07777232028</div>
+        <div><strong>Email</strong> info@7smartdeals.co.uk</div>
+        <div><strong>Web</strong> 7smartlogistic.co.uk</div>
+      </aside>
+    </header>
+
+    <section class="meta" aria-label="Company registration details">
+      <div><strong>Contact Person</strong>Raja Taimoor Afzal Satti</div>
+      <div><strong>Company Number</strong>17183461</div>
+      <div><strong>Registered</strong>England &amp; Wales</div>
+    </section>
+
+    <section class="content">
+      <div class="watermark" aria-hidden="true"><span>7 Smart Deals<br>Logistics</span></div>
+      <div class="date-line">Date: ____________________</div>
+
+      <div class="writing-lines" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="signature">
+        <div><strong>Raja Taimoor Afzal Satti</strong>Authorised Representative</div>
+        <div><strong>Company Stamp / Signature</strong>7 Smart Deals &amp; Logistics UK Ltd</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div><strong>Services</strong><span>House Moving | Warehouse Relocation | Parcel Delivery | Furniture Transport | General Logistics</span></div>
+        <div><strong>Business Details</strong><span>Company No. 17183461 | Private Limited Company</span></div>
+        <div><strong>Contact</strong><span>07777232028 | info@7smartdeals.co.uk</span></div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
